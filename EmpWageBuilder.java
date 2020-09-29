@@ -3,15 +3,18 @@ public class EmpWageBuilder{
     public static final int IS_FULL_TIME=1;
     public static final int RATE_PER_HOUR=20;
     public static final int NO_OF_WORKING_DAYS=20;
-
+    public static final int MAX_WORKING_HOURS=100;
+ 
    public static void main(String[] args){
      System.out.println("Welcome to Employee Wage Computation Program");
 
       int empHours=0;
       int empWage=0;
       int totalEmpWage=0;
+      int totalWorkingHours=0;
+      int totalWorkingDays=0;
 
-    for(int day=0; day<NO_OF_WORKING_DAYS; day++){
+    while(totalWorkingHours <= MAX_WORKING_HOURS && totalWorkingDays <= NO_OF_WORKING_DAYS){
 
       double attendence = Math.floor(Math.random()*10) % 3;
            switch ((int)attendence){
@@ -26,9 +29,11 @@ public class EmpWageBuilder{
                  }
  
          empWage = empHours * RATE_PER_HOUR;
-         totalEmpWage+= empWage;
+         totalEmpWage += empWage;
+         totalWorkingHours += empHours;
+         totalWorkingDays += 1;
          }
-        System.out.println("Employee Wage for 20 Working Days : " + totalEmpWage);
+        System.out.println("Total Employee Wage Is : " + totalEmpWage);
     
     }
  }
