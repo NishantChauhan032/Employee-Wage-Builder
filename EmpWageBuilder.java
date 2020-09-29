@@ -1,17 +1,13 @@
 public class EmpWageBuilder{
     public static final int IS_PART_TIME=2;
     public static final int IS_FULL_TIME=1;
-    public static final int RATE_PER_HOUR=20;
-    public static final int NO_OF_WORKING_DAYS=20;
-    public static final int MAX_WORKING_HOURS=100;
-    
 
-    public static int computeEmpWage(){
+    public static int computeEmpWage(String company, int empRate, int noOfDays, int maxHrs){
       int empHours=0;
       int totalWorkingHours=0;
       int totalWorkingDays=0;
 
-    while(totalWorkingHours <= MAX_WORKING_HOURS && totalWorkingDays <= NO_OF_WORKING_DAYS){
+    while(totalWorkingHours <= maxHrs && totalWorkingDays < noOfDays){
 
       double attendence = Math.floor(Math.random()*10) % 3;
            switch ((int)attendence){
@@ -30,15 +26,16 @@ public class EmpWageBuilder{
          System.out.println("Day#:" + totalWorkingDays+" Emp Hr:"+totalWorkingHours);
          }
 
-         int totalEmpWage = totalWorkingHours * RATE_PER_HOUR;
+         int totalEmpWage = totalWorkingHours * empRate;
  
-         System.out.println("Total Employee Wage Is : " + totalEmpWage);
+         System.out.println("Total Employee Wage for Company "+ company + " is " + totalEmpWage);
          return totalEmpWage;
     }
      
     public static void main(String[] args){
      System.out.println("Welcome to Employee Wage Computation Program");    
-     computeEmpWage(); 
+     computeEmpWage("D-Mart" , 20 , 2 , 10);
+     computeEmpWage("Reliance" , 10 , 4 , 20);
    }
  }
 
