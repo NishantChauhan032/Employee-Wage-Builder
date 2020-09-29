@@ -3,10 +3,14 @@ public class EmpWageBuilder{
      System.out.println("Welcome to Employee Wage Computation Program");
       
       int isFullTime = 1;
+      int empRatePerHour = 20;
+      int empHours = 0;
+      int empWage = 0;
       double attendence = Math.floor(Math.random()*10) % 2;
          if(attendence == isFullTime)
-              System.out.println("Employee Is Present");
-         else
-              System.out.println("Employee Is Absent");
+              empHours = 8;
+         
+         empWage = empHours*empRatePerHour;
+         System.out.println("Daily Wage Of Employee Is : " + empWage);
    }
  }
