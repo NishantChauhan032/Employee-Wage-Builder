@@ -4,13 +4,10 @@ public class EmpWageBuilder{
     public static final int RATE_PER_HOUR=20;
     public static final int NO_OF_WORKING_DAYS=20;
     public static final int MAX_WORKING_HOURS=100;
- 
-   public static void main(String[] args){
-     System.out.println("Welcome to Employee Wage Computation Program");
+    
 
+    public static int computeEmpWage(){
       int empHours=0;
-      int empWage=0;
-      int totalEmpWage=0;
       int totalWorkingHours=0;
       int totalWorkingDays=0;
 
@@ -27,14 +24,21 @@ public class EmpWageBuilder{
                  default :
                       empHours=0;
                  }
- 
-         empWage = empHours * RATE_PER_HOUR;
-         totalEmpWage += empWage;
+         
+         totalWorkingDays++;
          totalWorkingHours += empHours;
-         totalWorkingDays += 1;
+         System.out.println("Day#:" + totalWorkingDays+" Emp Hr:"+totalWorkingHours);
          }
-        System.out.println("Total Employee Wage Is : " + totalEmpWage);
-    
+
+         int totalEmpWage = totalWorkingHours * RATE_PER_HOUR;
+ 
+         System.out.println("Total Employee Wage Is : " + totalEmpWage);
+         return totalEmpWage;
     }
+     
+    public static void main(String[] args){
+     System.out.println("Welcome to Employee Wage Computation Program");    
+     computeEmpWage(); 
+   }
  }
 
